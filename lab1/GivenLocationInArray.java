@@ -5,13 +5,31 @@ public class GivenLocationInArray {
         Scanner sc= new Scanner(System.in);
         System.out.println("enter the size of array");
         int n=sc.nextInt();
-        int a[]=new int[n];
-        int b[]=new int[n+1];
+        int arr[]=new int[n];
+        int newArr[]=new int[n+1];
+        System.out.println("enter the values");
         for (int i = 0; i < n; i++) {
-            a[i] = sc.nextInt();
-            System.out.println(a[i]);
+            arr[i] = sc.nextInt();
+            
+        }
+        
+        //copying old array into new one
+        for(int i=0;i<n-1;i++){
+            newArr[i]=arr[i];
+            
         }
         System.out.println("enter the index");
-        int c=sc.nextInt();
+        int index=sc.nextInt();
+        System.out.println("enter the new element");
+        int newelement=sc.nextInt();
+        newArr[index]=newelement;
+
+        for(int i=index+1;i<n;i++){
+            newArr[i]=arr[i];
+            System.out.println(newArr[i]);
+        }
+        for(int i=0;i<n+1;i++){
+            System.out.println(newArr[i]);
+        }
     }
 }
