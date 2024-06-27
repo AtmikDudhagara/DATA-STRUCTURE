@@ -12,21 +12,20 @@ public class GivenLocationInArray {
             arr[i] = sc.nextInt();
             
         }
-        
-        //copying old array into new one
-        for(int i=0;i<n-1;i++){
-            newArr[i]=arr[i];
-            
-        }
         System.out.println("enter the index");
         int index=sc.nextInt();
         System.out.println("enter the new element");
         int newelement=sc.nextInt();
+        //copying old array into new one
+        for(int i=0;i<index;i++){
+            newArr[i]=arr[i];
+            
+        }
+        
         newArr[index]=newelement;
 
-        for(int i=index+1;i<n;i++){
-            newArr[i]=arr[i];
-            System.out.println(newArr[i]);
+        for(int i=index+1;i<n+1;i++){
+            newArr[i]=arr[i-1];
         }
         for(int i=0;i<n+1;i++){
             System.out.println(newArr[i]);
