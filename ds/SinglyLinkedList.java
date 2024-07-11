@@ -39,28 +39,26 @@ public class SinglyLinkedList {
                 l1.displayList();
                 break;
 
+
                 case 5:
-                l1.removeFirst();
+                System.out.println("enter the position you want to delete");
+                int key=sc.nextInt();
+                l1.deletePosition(key);
                 break;
 
                 case 6:
-                l1.removeLast();
-                break;
-
-                case 7:
                 System.out.println("Enter the element you want to delete:");
                 int d = sc.nextInt();
                 l1.deletePosition(d);
                 break;
                 
-                case 8:
-                ans = false;
-                break;
+               
         }
     }
 
 }
  class LinkedList{
+    static int key;
     class Node{
         int data;
         Node link;
@@ -133,14 +131,28 @@ public class SinglyLinkedList {
         newNode.link=temp.link;
         temp.link= newNode;
     }
-    public void removeFirst(){
+
+  
+    public void deletePosition(int data){
+      
+        Node temp;
+        int count=0;
+        temp=first;
+      
 
 
-
-
+        if (first==null) {
+            
+            System.out.println("empty");
+            
+        }
+        while (count!=key) {
+            temp=temp.link;
+            count++;
+            
+        }
+        temp.link=temp.link.link;
     }
-    public void removeLast( int data){}
-    public void deletePosition(int data){}
     void displayList(){
         Node temp = first;
         while (temp != null){
