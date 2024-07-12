@@ -1,31 +1,70 @@
+
+import java.util.Stack;
 import java.util.Scanner;
-public class Recognize {
-    public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
-        String str = sc.nextLine();
-        
-    }
 
-    public static boolean checkString(String str){
-        java.util.Stack<Character> st= new java.util.Stack<Character>();
+public class Recognize
 
-        int index=0;
-        char next=str.charAt(index);
-        st.push('c');
-        while (next!='c' && str.length()!=0) {
-            if(next==' '){
-                return false;
-            }
-            
-            st.push(next);
-            index++;
-            next = str.charAt(index);
-        }
-        index++;
-        while (st.peek()!='c' && next<str.length()) {
-            
-        }
-        return true;
-    }
-    
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a String :");
+		String str = sc.nextLine();
+		StringRecognize s1 = new StringRecognize(str + " ");
+	
+		if(s1.Recognize())
+		{	System.out.println("Valid String!!!");}
+		else
+		{	System.out.println("Invalid String!!!");}
+	}
+}
+class StringRecognize
+{
+	String str ;
+	StringRecognize(String str)
+	{
+		this.str = str;
+	}
+	public boolean Recognize()
+	{
+		Stack<Character> s = new Stack<>();
+		int n = str.length();
+		int i = 0;
+		char ch = str.charAt(0);
+		if(s.isEmpty()){
+			return false;
+
+		}
+		while(ch != 'c')
+		{
+			s.push(ch);
+			i++;
+			ch = str.charAt(i);
+			if(ch == ' ')
+			{
+				return false;
+			}
+		}
+
+		char x;
+		while(s.peek() != 'c' && i < str.length())
+		{
+			i++;
+			ch = str.charAt(i);
+			x = s.pop();
+			if(ch != x)
+			{
+				return false ;
+			}
+			
+		}
+		ch = str.charAt(i+1);
+		if(ch == ' ')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
